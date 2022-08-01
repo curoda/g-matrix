@@ -44,7 +44,8 @@ def Read_and_Display(n,key=0):
     matsize1 = n**2
     if file1!='None':
         # read in the matrix
-        df1 = pd.read_excel(file1, sheet1, skiprows = startingrow1, usecols = list(range(0,matsize1)), index_col=None, header=None,nrows=matsize1,engine='openpyxl')
+        #df1 = pd.read_excel(file1, sheet1, skiprows = startingrow1, usecols = list(range(0,matsize1)), index_col=None, header=None,nrows=matsize1,engine='openpyxl')
+        df1 = pd.read_excel(file1, sheet1, usecols = list(range(0,matsize1)), index_col=None, header=None,nrows=matsize1,engine='openpyxl')
         # convert to numpy
         mat1 = df1.to_numpy()
 
