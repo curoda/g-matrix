@@ -34,7 +34,8 @@ def thetafun(q,p):
 
 def Read_and_Display(n,key=0):
     # Get the file
-    file1 = st.text_input("File (with path)", "None",key=key+1)
+    #file1 = st.text_input("File (with path)", "None",key=key+1)
+    file1 = st.file_uploader("Choose a file", "xlsx", key=1)
     
     # location of the data in the file
     sheet1 = st.text_input("Excel Sheet", "Sheet1", key=key+2)
