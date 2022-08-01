@@ -39,7 +39,7 @@ def Read_and_Display(n,key=0):
     
     # location of the data in the file
     sheet1 = st.text_input("Excel Sheet", "Sheet1", key=key+2)
-    startingrow1 = int(st.text_input("Starting Row", 2,key=key+3))
+    startingrow1 = int(st.text_input("Starting Row", 1,key=key+3))
     #matsize1 = int(st.text_input("Matrix Dimension", n**2, key=key+4))
     matsize1 = n**2
     if file1!='None':
