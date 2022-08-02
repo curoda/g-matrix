@@ -130,7 +130,7 @@ def main():
     
     st.header("g")
     st.write("g(m,n,p,q)=exp(-i * 2pi / B * (m * cos(theta(p,q)) + n * sin(theta(p,q))))")
-    g_df = pd.DataFrame(g).applymap(lambda z: "%0.3f %+0.3fi" % (z.real, z.imag))
+    g_df = pd.DataFrame(g).applymap(lambda z: "%5.4g%+5.4gi" % (z.real, z.imag))
     st.write(g_df)
 
     st.header("Condition number of g")
@@ -140,8 +140,14 @@ def main():
     # inverse
     st.header("inv(g)")
     ginv = np.linalg.inv(g)
-    g_inv = pd.DataFrame(ginv).applymap(lambda z: "%5.4g %+5.4gi" % (z.real, z.imag))
+    g_inv = pd.DataFrame(ginv).applymap(lambda z: "%5.4g%+5.4gi" % (z.real, z.imag))
     st.write(g_inv)
+
+    st.header("Check that the inverse worked.")
+    st.write("g x inv(g) = identity?")
+    chk = ginv@g
+    chkdf = pd.DataFrame(chk).applymap(lambda z: "%5.4f%+5.4fi" % (z.real, z.imag))
+    st.write(chkdf)
 
 
     # download the results
